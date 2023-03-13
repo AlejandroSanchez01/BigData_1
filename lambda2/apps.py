@@ -8,7 +8,7 @@ def lambda_handler(event, context):
     file_name = "landing-casas-" + now.strftime("%Y-%m-%d") + ".txt"
 
     s3 = boto3.resource('s3')
-    bucket = s3.Bucket('bucket2103')
+    bucket = s3.Bucket('bigdata20230')
     obj = bucket.Object(file_name)
     body = obj.get()['Body'].read()
     archivo = json.loads(body)
@@ -51,5 +51,5 @@ def lambda_handler(event, context):
 
     file_name2 = "landing-casas-final-" + now.strftime("%Y-%m-%d") + ".csv"
     s3 = boto3.resource('s3')
-    obj = s3.Object('zappa-w3i5doh7f', file_name2)
+    obj = s3.Object('zappa-3j3vvqk51', file_name2)
     obj.put(Body=csv_data)
