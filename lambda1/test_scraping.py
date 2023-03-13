@@ -14,18 +14,13 @@ def test_datos1(mocker):
 
 def test_datos2(mocker):
     url = "https://api.fincaraiz.com.co/document/api/1.0/listing/search"
-
     mocker.patch('requests.post', return_value='23')
     respuesta = datos(url)
-
     assert isinstance(respuesta, str)
     assert respuesta[0] == '2'
     assert int(respuesta[0]) + int(respuesta[1]) == 5
-    
+
 
 def test_datos3():
-    url ="https://api.fincaraiz.com.co/document/api/1.0/listing/search"
+    url = "https://api.fincaraiz.com.co/document/api/1.0/listing/search"
     assert len(url) == 60
-    
-    
-    
